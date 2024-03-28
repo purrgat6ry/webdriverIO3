@@ -60,6 +60,11 @@ describe('Test Suite', () => {
         await $(checkboxSelector).waitForDisplayed({ timeout: 5000 });
         await $(checkboxSelector).click();
 
+        await $("#select_510").click();
+        const optionGpu = await $("#select_option_517");
+        await optionGpu.waitForClickable({ timeout: 5000 });
+        await optionGpu.click();
+
         await $("#select_469").click();
         const optionSsd = await $("//div[contains(text(), '2x375 GB')]");
         await optionSsd.waitForClickable({ timeout: 5000 });
@@ -100,9 +105,9 @@ describe('Test Suite', () => {
         const emailEstimate = await $("(//button[@id='Email Estimate'])[1]");
         await emailEstimate.click();
 
-        await $("#dialogContent_621 > form > md-content > div:nth-child(3)").click();
+        await $("#dialogContent_626 > form > md-content > div:nth-child(3)").click();
         await browser.keys(['Control', 'v']);
-        
+
         let sendButton= await $("button[ng-disabled='emailForm.$invalid']")
         await sendButton.click();
 
